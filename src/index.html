@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Clinic</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="images/8595f4b711e503bc72fe396e5043e0c2.png"
+    />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="css/mdb.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <aside>
+        <div class="logo">
+          <!-- <h1 class="title">My Clinic</h1> -->
+          <img src="images/logo.png" alt="Logo Image" />
+        </div>
+        <ul class="menu">
+          <li class="menu-item home btn-primary" data-item="item-home">
+            <i class="fa fa-home"></i>
+            <span>Home</span>
+          </li>
+          <li
+            class="menu-item clients btn-primary active"
+            data-item="item-clients"
+          >
+            <i class="fa fa-user"></i>
+            <span>Clients</span>
+          </li>
+          <li class="menu-item doctors btn-primary" data-item="item-doctors">
+            <i class="fa fa-user-md"></i>
+            <span>Doctors</span>
+          </li>
+          <li class="menu-item staff btn-primary" data-item="item-staff">
+            <i class="fa fa-home"></i>
+            <span>Staff</span>
+          </li>
+          <li class="menu-item about-us btn-primary" data-item="item-about-us">
+            <i class="fa fa-circle-info"></i>
+            <span>About Us</span>
+          </li>
+        </ul>
+      </aside>
+      <div class="contents">
+        <div class="content-item item-home">
+          <h2 class="title title-home fw-bold">Home content</h2>
+        </div>
+        <div class="content-item item-clients active">
+          <h2 class="title title-clients fw-bold">Clients Management</h2>
+          <div class="tabs-wrapper">
+            <div class="tabs">
+              <ul class="btn-group btn-group-lg">
+                <li data-item="all-clients" class="active btn btn-info">
+                  <i class="fa fa-bars"></i>
+                  <span class="ms-1">All Clients</span>
+                </li>
+                <li data-item="add-client" class="btn btn-info">
+                  <i class="fa fa-plus"></i>
+                  <span class="ms-1">Add Client</span>
+                </li>
+                <li data-item="update-client" class="disabled btn btn-info">
+                  <i class="fa fa-pen-to-square"></i>
+                  <span class="ms-1">Update Client</span>
+                </li>
+              </ul>
+            </div>
+            <div class="tabs-contents">
+              <div class="tab-content all-clients active">
+                <div class="all-clients-table-wrapper">
+                  <table id="all-clients-table" class="display">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Work</th>
+                        <th>Price</th>
+                        <th>Work In</th>
+                        <th>Work Out</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-content add-client">
+                <form
+                  action="#"
+                  method="post"
+                  class="add-client-form"
+                  id="add-client-form"
+                >
+                  <div class="form-group form-outline">
+                    <input
+                      type="text"
+                      name="client_name"
+                      id="client_name"
+                      class="form-control"
+                      required
+                    />
+                    <label for="client_name" class="form-label"
+                      >Client Name</label
+                    >
+                  </div>
+                  <div class="form-group form-outline">
+                    <input
+                      type="text"
+                      name="client_work"
+                      id="client_work"
+                      class="form-control"
+                      required
+                    />
+                    <label for="client_work" class="form-label">Work</label>
+                  </div>
+                  <div class="form-group form-outline">
+                    <input
+                      type="number"
+                      step="0.01"
+                      name="client_salary"
+                      id="client_salary"
+                      class="form-control"
+                      required
+                    />
+                    <label for="client_salary" class="form-label">Price</label>
+                  </div>
+                  <div class="form-group form-outline client-work-in">
+                    <input
+                      type="time"
+                      name="client_work_in"
+                      id="client_work_in"
+                      class="form-control"
+                      required
+                    />
+                    <div class="form-helper">Work In</div>
+                  </div>
+                  <div class="form-group form-outline client-work-out">
+                    <input
+                      type="time"
+                      name="client_work_out"
+                      id="client_work_out"
+                      class="form-control"
+                      required
+                    />
+                    <div class="form-helper">Work Out</div>
+                  </div>
+                  <div class="form-group">
+                    <button class="add-client-btn btn btn-primary">
+                      <i class="fa fa-plus"></i>
+                      <span class="ms-1">Add Client</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <div class="tab-content update-client">
+                <form
+                  action="#"
+                  method="post"
+                  class="update-client-form"
+                  id="update-client-form"
+                >
+                  <div class="form-group form-outline">
+                    <input
+                      type="text"
+                      id="client_id_update"
+                      class="form-control"
+                      name="client_id_update"
+                    />
+                    <label for="client_id_update" class="form-label"
+                      >Client ID</label
+                    >
+                  </div>
+                  <div class="form-group form-outline">
+                    <input
+                      type="text"
+                      id="client_name_update"
+                      class="form-control"
+                      name="client_name_update"
+                      required
+                    />
+                    <label for="client_name_update" class="form-label"
+                      >Client Name</label
+                    >
+                  </div>
+                  <div class="form-group form-outline">
+                    <input
+                      type="text"
+                      id="client_work_update"
+                      class="form-control"
+                      name="client_work_update"
+                      required
+                    />
+                    <label for="client_work_update" class="form-label"
+                      >Work</label
+                    >
+                  </div>
+                  <div class="form-group form-outline">
+                    <input
+                      type="number"
+                      step="0.01"
+                      id="client_salary_update"
+                      class="form-control"
+                      name="client_salary_update"
+                      required
+                    />
+                    <label for="client_salary_update" class="form-label"
+                      >Price</label
+                    >
+                  </div>
+                  <div class="form-group form-outline">
+                    <input
+                      type="time"
+                      id="client_work_in_update"
+                      class="form-control"
+                      name="client_work_in_update"
+                      required
+                    />
+                    <label for="client_work_in_update" class="form-label"
+                      >Work In</label
+                    >
+                  </div>
+                  <div class="form-group form-outline">
+                    <input
+                      type="time"
+                      id="client_work_out_update"
+                      name="client_work_out_update"
+                      class="form-control"
+                      required
+                    />
+                    <label for="client_work_out_update" class="form-label"
+                      >Work Out</label
+                    >
+                  </div>
+                  <div class="form-group d-flex justify-content-between">
+                    <button class="update-client-btn btn btn-primary">
+                      <i class="fa fa-pen-to-square"></i>
+                      <span class="ms-1">Update Client</span>
+                    </button>
+                    <button class="btn btn-warning" id="close-update-tab">
+                      <i class="fa fa-backward"></i>
+                      <span class="ms-1">Back To Manage</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content-item item-doctors">
+          <h2 class="title title-doctors fw-bold">Doctors Content</h2>
+        </div>
+        <div class="content-item item-staff">
+          <h2 class="title title-staff fw-bold">Staff Content</h2>
+        </div>
+        <div class="content-item item-about-us">
+          <h2 class="title title-about-us fw-bold">About Us Content</h2>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+  </body>
+</html>
